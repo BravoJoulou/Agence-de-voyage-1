@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tantamin Travel - Agence Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--main:#ff9800;
+--primary:#008cff;
+--dark:#111;
+--light:#ffffff;
+--text:#1a1a1a;
+--card:#ffffff;
+}
+
+body.dark{
+--light:#0d1117;
+--text:#ffffff;
+--card:#161b22;
+background:#0d1117;
+color:white;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f7f7f7;
+color:var(--text);
+scroll-behavior:smooth;
+margin-top:90px;
+}
+
+header{
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:var(--card);
+position:fixed;
+top:0;
+z-index:10;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:22px;
+font-weight:800;
+color:var(--primary);
+}
+
+nav a{
+margin:0 12px;
+text-decoration:none;
+font-weight:600;
+color:var(--text);
+}
+
+.toggle{
+padding:8px 14px;
+background:var(--primary);
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.hero{
+height:90vh;
+background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+display:flex;
+align-items:center;
+padding-left:8%;
+}
+
+.hero-box{
+background: rgba(0,0,0,0.6);
+padding:25px;
+border-radius:12px;
+color:white;
+max-width:450px;
+animation:fade 1.5s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+section{
+padding:80px 8%;
+}
+
+.title{
+text-align:center;
+font-size:34px;
+margin-bottom:20px;
+font-weight:800;
+}
+
+.destinations,.services,.blog{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:18px;
+}
+
+.card{
+background:var(--card);
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:210px;
+object-fit:cover;
+}
+
+.card div{
+padding:15px;
+}
+
+.form-box{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+max-width:750px;
+margin:auto;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin:6px 0 14px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.btn{
+background:var(--main);
+padding:12px 18px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+border:none;
+cursor:pointer;
+display:inline-block;
+}
+
+.pay{
+background:#008cff;
+}
+
+#success{
+display:none;
+text-align:center;
+padding:12px;
+margin-top:12px;
+border-radius:8px;
+background:#4CAF50;
+color:white;
+font-weight:bold;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+🌍 TANTAMIN TRAVEL
+</div>
+
+<nav>
+<a href="#home">Accueil</a>
+<a href="#dest">Destinations</a>
+<a href="#services">Services</a>
+<a href="#reservation">Réservation</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="toggle" onclick="toggleMode()">🌗 Mode</div>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-box">
+<h1>Voyagez Premium ✈️</h1>
+<p>Agence de voyage professionnelle, sécurisée et fiable avec service VIP.</p>
+<a class="btn" href="#reservation">Réserver Maintenant</a>
+</div>
+</section>
+
+<section id="dest">
+<h2 class="title">Destinations Populaires</h2>
+
+<div class="destinations">
+
+<div class="card">
+<img src="https://circuit-voyage.com/wp-content/uploads/2025/08/Decouvrir-les-plus-belles-plages-du-Benin-pour-vos-vacances-en-2025-1-1024x585.jpg" alt="Plage du Bénin">
+<div>
+<h3>Plage du Bénin</h3>
+<p>Profitez des magnifiques plages du Bénin.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://congres.nephro.bj/wp-content/uploads/2024/08/52820747398_ce4378b744_o-1024x683.jpg" alt="Amazone du Bénin">
+<div>
+<h3>Amazone du Bénin</h3>
+<p>Découvrez le symbole national historique.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/0d/ab/49/slave-route-view-from.jpg?w=1200&h=700&s=1" alt="Route des Esclaves">
+<div>
+<h3>Ouidah - Route des Esclaves</h3>
+<p>Découvrez une histoire riche et forte.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i0.wp.com/www.beninrevele.com/wp-content/uploads/2022/07/Statut-Bio-Guera-1.jpg?resize=1024%2C771&ssl=1" alt="Place Bio Guerra de cotonou">
+<div>
+<h3>Place Bio Guerra</h3>
+<p>Decouvrez la place Bio Guerra, Monument de l'un des guerrier du Bénin.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="services">
+<h2 class="title">Nos Services Premium</h2>
+
+<div class="services">
+
+<div class="card">
+<div>
+<h2>🎫 Billets d’Avion</h2>
+<p>Réservation rapide et fiable.</p>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h2>🏨 Séjours</h2>
+<p>Voyages organisés complets.</p>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h2>🛂 Assistance Visa</h2>
+<p>Accompagnement sécurisé.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="reservation">
+<h2 class="title">Réservation en Ligne</h2>
+
+<div class="form-box">
+<form onsubmit="booking(event)">
+<label>Nom complet</label>
+<input id="name" required>
+
+<label>Email</label>
+<input id="email" type="email" required>
+
+<label>Destination</label>
+<select id="destin">
+<option>Plage du Bénin</option>
+<option>Amazone du Bénin</option>
+<option>Ouidah</option>
+<option>Vodoun Day</option>
+<option>Autre</option>
+</select>
+
+<label>Message</label>
+<textarea id="msg" rows="4"></textarea>
+
+<button class="btn">Envoyer Réservation</button>
+<button class="btn pay" onclick="payNow(event)">Payer Maintenant</button>
+
+<div id="success">✔ Réservation envoyée avec succès ! Nous vous répondrons très vite.</div>
+
+</form>
+</div>
+</section>
+
+<section id="blog">
+<h2 class="title">Blog Voyage</h2>
+
+<div class="blog">
+
+<div class="card">
+<img src="https://cdn.prod.website-files.com/61b694c59f46238057609302/6438654e3f4070638c5a7579_5%20voyages%20qui%20pourrait%20changer%20votre%20vie%20cette%20e%CC%81te%CC%81%20-%20cover-p-1080.jpg" alt="Voyager peut changer ta vie">
+<div>
+<h3>Pourquoi voyager change la vie</h3>
+<p>Découvrez comment voyager ouvre l’esprit.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f">
+<div>
+<h3>Top 5 destinations 2026</h3>
+<p>Les pays les plus visités cette année.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<h2 class="title">Contact</h2>
+
+<p style="text-align:center;">
+<b>Nom :</b> TANTAMIN Sabi Sammo <br>
+<b>Email :</b> tsabisammo@gmail.com <br>
+<b>WhatsApp :</b> +229583789363
+</p>
+
+<br>
+
+<div style="text-align:center;">
+<a class="btn" href="mailto:tsabisammo@gmail.com">Envoyer Email</a>
+<a class="btn" style="background:green" href="https://wa.me/229583789363">WhatsApp Direct</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Tantamin Travel Agency • Tous droits réservés
+</footer>
+
+<script>
+
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+function booking(e){
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let destin=document.getElementById("destin").value;
+let msg=document.getElementById("msg").value;
+
+if(name==="" || email===""){
+alert("Veuillez remplir tous les champs obligatoires.");
+return;
+}
+
+let whatsapp =
+"https://wa.me/229583789363?text=" +
+"Nouvelle Réservation%0A" +
+"Nom : " + name + "%0A" +
+"Email : " + email + "%0A" +
+"Destination : " + destin + "%0A" +
+"Message : " + msg;
+
+window.open(whatsapp,"_blank");
+
+document.getElementById("success").style.display="block";
+}
+
+function payNow(e){
+e.preventDefault();
+alert("Paiement sécurisé prêt. Peut être connecté à PayPal / Stripe 👍");
+}
+
+</script>
+
+</body>
+</html>
